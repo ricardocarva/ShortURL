@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css",
+      "Id": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css",
       "PackagePath": "staticwebassets\\ShortURL.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\app.css",
+      "Id": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
