@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r7Qib3eE9EoRaCxMzdnJGKlQiPhfrvrruQ8izqERz2Y=",
+  "Hash": "WbXaCfoUv++JbhTPLrex/ze6akyt1/bj4iKGJcnmcIc=",
   "Source": "ShortURL",
   "BasePath": "_content/ShortURL",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ShortURL\\wwwroot",
       "Source": "ShortURL",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\",
       "BasePath": "_content/ShortURL",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ShortURL.styles.css",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ShortURL.styles.css",
       "SourceId": "ShortURL",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "ShortURL.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ShortURL.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ShortURL.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css",
       "SourceId": "ShortURL",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "ShortURL.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ShortURL.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\app.css",
       "SourceId": "ShortURL",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "ShortURL",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "ShortURL",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\favicon.png",
       "SourceId": "ShortURL",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Gustavo\\Documents\\Repo\\ShortURL\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ricardo\\source\\repos\\ShortURL\\wwwroot\\",
       "BasePath": "_content/ShortURL",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
