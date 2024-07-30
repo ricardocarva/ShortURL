@@ -1,69 +1,66 @@
 ﻿@page "/shorturl"
+@rendermode InteractiveServer
 @using System.ComponentModel.DataAnnotations
 @using System.Security.Cryptography
-@inject ILogger<ShortURL> Logger
+@using ShortURL
+@inject ILogger<URL> Logger
 @inject IJSRuntime JSRuntime
 
 <PageTitle>URL Shortener</PageTitle>
 
 <h2>Paste the URL below to be shortened:</h2>
 
-<EditForm Model="Model" OnValidSubmit="Submit" OnInvalidSubmit="HandldeInvalidSubmit" FormName="ShortURL">
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit" FormName="shorturl">
   <DataAnnotationsValidator />
   <ValidationSummary />
   <div class="mb-3">
-    <label class="form-label">
-      <InputText type="text" class="form-control" id="URL" placeholder="Ex: www.google.com" @bind-Value="Model!.URL" />
-    </label>
+    <label class="form-label" for="originalURL">URL:</label>
+    <InputText class="form-control" id="originalURL" placeholder="Ex: www.google.com" @bind-Value="Model.originalURL" />
   </div>
   <div class="col-auto">
     <span>
-      <button type="submit" class="btn btn-primary mb-3">Submit</button>
-      <button type="clear" class="btn btn-danger mb-3" @onclick="ClearForm">Clear</button>
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    <button type="button" class="btn btn-danger mb-3" @onclick="ClearForm">Clear</button>
     </span>
   </div>
-  @if (!string.IsNullOrWhiteSpace(shortenedUrl))
+  @if (!string.IsNullOrWhiteSpace(Model.shortenedUrl))
   {
-    <p>Shortened URL: @shortenedUrl</p>
+    <div class="col-auto">
+    <p>Shortened URL: @Model.shortenedUrl</p>
+  </div>
   }
 </EditForm>
 
 @code {
-    public ShortURL Model { get; set; } = new ShortURL();
-    private string shortenedUrl = string.Empty;
-    private void ClearForm()
-    {
-      Model = new ShortURL();
-      shortenedUrl = string.Empty;
-      var form = new EditContext(Model);
-      form.MarkAsUnmodified();
-      form.NotifyValidationStateChanged();
-      StateHasChanged();
-    }
-    private async Task Submit()
-    {
-        Logger.LogInformation("URL = {url}", Model.URL);
-        shortenedUrl = GenerateShortURL(Model.URL);
-        @*await JSRunTime.InvokeVoidAsync("console.log", $"Generated Shortened URL: {shortenedUrl}");*@
-    }
-    private void HandldeInvalidSubmit()
-    {
-      shortenedUrl = string.Empty;
-    }
+  private EditContext _editContext;
+  public URL Model { get; set; } = new URL();
+
+  protected override void OnInitialized()
+  {
+    _editContext = new EditContext(Model);
+  }
+  private async Task ClearForm()
+  {
+    Model = new URL();
+    @* Console.WriteLine("\n\nCleared:\n\n"); *@
+    _editContext  = new EditContext(Model);    
+    @* await JSRuntime.InvokeVoidAsync("console.log", "Form cleared.");  *@
+  }
+  private async Task HandleValidSubmit()
+  {
+    Logger.LogInformation("URL = {url}", Model.originalURL);
+    Model.shortenedUrl = GenerateShortURL(Model.originalURL);
+    @* await JSRuntime.InvokeVoidAsync("console.log", $"Shortened URL: {Model.shortenedUrl}");
+    Console.WriteLine("\n\nHERE:\n{0}\n\n", Model.shortenedUrl); *@
+  }
     private string GenerateShortURL(string url)
+  {
+    using (var sha256 = SHA256.Create())
     {
-      using (var sha256 = SHA256.Create())
-        {
-          var hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(url));
-          var hash = BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 8); // Shorten the hash for URL purposes
-          var baseUrl = "https://shrt.url/";
-          return $"{baseUrl}{hash}";
-        }
+      var hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(url));
+      var hash = BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 8); // Shorten the hash for URL purposes
+      var baseUrl = "https://shrt.url/";
+      return $"{baseUrl}{hash}";
     }
-        public class ShortURL
-    {
-        [Required(ErrorMessage = "Please Enter a URL.")]
-        [StringLength(100, ErrorMessage = "URL is too long.")]
-        public string URL { get; set; }
-    }
+  }  
 }
