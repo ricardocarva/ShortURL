@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 using ShortURL.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddLogging();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
 
 var app = builder.Build();
 
