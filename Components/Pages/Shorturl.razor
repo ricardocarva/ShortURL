@@ -5,8 +5,6 @@
 @using ShortURL
 @inject ILogger<URL> Logger
 @inject IJSRuntime JSRuntime
-@inject UrlShortenerService UrlShortenerService
-@using System.Net.Http
 
 <PageTitle>URL Shortener</PageTitle>
 
@@ -16,8 +14,8 @@
   <DataAnnotationsValidator />
   <ValidationSummary />
   <div class="mb-3">
-    <label class="form-label" for="OriginalURL">URL:</label>
-    <InputText class="form-control" id="OriginalURL" placeholder="Ex: www.google.com" @bind-Value="Model.OriginalURL" />
+    <label class="form-label" for="originalURL">URL:</label>
+    <InputText class="form-control" id="originalURL" placeholder="Ex: www.google.com" @bind-Value="Model.originalURL" />
   </div>
   <div class="col-auto">
     <span>
@@ -25,10 +23,10 @@
     <button type="button" class="btn btn-danger mb-3" @onclick="ClearForm">Clear</button>
     </span>
   </div>
-  @if (!string.IsNullOrWhiteSpace(Model.ShortenedUrl))
+  @if (!string.IsNullOrWhiteSpace(Model.shortenedUrl))
   {
     <div class="col-auto">
-    <p>Shortened URL: @Model.ShortenedUrl</p>
+    <p>Shortened URL: @Model.shortenedUrl</p>
   </div>
   }
 </EditForm>
@@ -44,13 +42,25 @@
   private async Task ClearForm()
   {
     Model = new URL();
+    @* Console.WriteLine("\n\nCleared:\n\n"); *@
     _editContext  = new EditContext(Model);    
+    @* await JSRuntime.InvokeVoidAsync("console.log", "Form cleared.");  *@
   }
   private async Task HandleValidSubmit()
   {
-    await UrlShortenerService.ShortenerUrlAsync(Model);
-    
-    @* Logger.LogInformation("URL = {url}", Model.OriginalURL);
-    Model.ShortenedUrl = GenerateShortURL(Model.OriginalURL); *@
+    Logger.LogInformation("URL = {url}", Model.originalURL);
+    Model.shortenedUrl = GenerateShortURL(Model.originalURL);
+    @* await JSRuntime.InvokeVoidAsync("console.log", $"Shortened URL: {Model.shortenedUrl}");
+    Console.WriteLine("\n\nHERE:\n{0}\n\n", Model.shortenedUrl); *@
   }
+    private string GenerateShortURL(string url)
+  {
+    using (var sha256 = SHA256.Create())
+    {
+      var hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(url));
+      var hash = BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 8); // Shorten the hash for URL purposes
+      var baseUrl = "https://shrt.url/";
+      return $"{baseUrl}{hash}";
+    }
+  }  
 }
