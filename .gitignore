@@ -1,7 +1,7 @@
 # Built application files
-bin/
-obj/
-out/
+bin/*
+obj/*
+out/*
 
 # NuGet Packages
 packages/
@@ -36,3 +36,5 @@ Thumbs.db
 
 # Environment variables
 .env
+.prettier
+.cr
