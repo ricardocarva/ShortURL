@@ -1,32 +1,19 @@
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using ShortURL;
 
-using ShortURL.Components;
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.tinyurl.com/") });
 builder.Services.AddScoped<UrlShortenerService>();
-builder.Services.AddRazorComponents().AddInteractiveServerComponents();
-builder.Services.AddLogging();
-builder.Services.AddOptions();
-builder.Services.AddAuthorizationCore();
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+builder.Services.AddOidcAuthentication(options =>
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+    // Configure your authentication provider options here.
+    // For more information, see https://aka.ms/blazor-standalone-auth
+    builder.Configuration.Bind("Local", options.ProviderOptions);
+});
 
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-app.UseAntiforgery();
-
-app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
-
-app.Run();
+await builder.Build().RunAsync();
