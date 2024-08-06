@@ -23,6 +23,7 @@ cache/
 appsettings.json
 appsettings.*.json
 *.config
+launchSettings.json
 
 # Node modules
 node_modules/

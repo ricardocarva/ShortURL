@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using ShortURL;
 using ShortURL.Models;
 
-namespace ShortURL
+namespace ShortURL.Services
 {
     public class UrlShortenerService
     {
